@@ -1,31 +1,14 @@
 import {Card, CardContent, Stack, Typography} from "@mui/material";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 function ProductCard(props) {
     const {product} = props
-
+    let navigate = useNavigate();
     const {name, price, avatar, id} = product;
 
     function openProductDetail() {
-        fetchData();
-    }
-
-    const axios = require('axios');
-
-    function fetchData() {
-        const url = `https://62286b649fd6174ca82321f1.mockapi.io/case-study/products/${id}`
-        axios.get(url)
-            .then(function (response) {
-                // handle success
-                console.log(response.data);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .then(function () {
-                // always executed
-            });
+        navigate(`/products/${id}`);
     }
 
     return (

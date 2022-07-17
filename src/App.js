@@ -1,5 +1,6 @@
 import './App.css';
 import HomePage from "./Pages/HomePage"
+import ProductPage from "./Pages/ProductPage"
 import CreateProduct from "./Pages/CreateProduct"
 import Header from "./Components/Header";
 import {Stack} from "@mui/material";
@@ -10,7 +11,8 @@ function App() {
         <Stack spacing={1} className="Layout-Style">
             <Header/>
             <Routes>
-                <Route path="/" element={<HomePage/>}/>
+                <Route path="products" element={<HomePage/>}/>
+                <Route path="products/:productId" element={<ProductPage/>}/>
                 <Route path="createProduct" element={<CreateProduct/>}/>
             </Routes>
         </Stack>

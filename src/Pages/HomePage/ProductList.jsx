@@ -1,12 +1,13 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 import ProductCard from "../../Components/ProductCard/ProductCard";
-import {Grid} from "@mui/material";
+import {CircularProgress, Grid} from "@mui/material";
+import Box from "@mui/material/Box";
 
 function ProductList(props) {
     const {selectedCategory} = props;
     const [productList, setProductList] = useState([]);
-    const [shownList, setShownList] = useState([]);
+    const [shownList, setShownList] = useState(-1);
 
     const axios = require('axios');
 
@@ -39,7 +40,9 @@ function ProductList(props) {
     }
 
     return (
-        <Grid container className="ProductList-Container">
+        shownList === -1 ? <Box className="Loading-Box-Style">
+            <CircularProgress size="100"/>
+        </Box> : <Grid container className="ProductList-Container">
             {shownList.map((product, index) => {
                 return <Grid key={index} item xs={3} style={{padding: 20}}> <ProductCard product={product}/> </Grid>
             })}

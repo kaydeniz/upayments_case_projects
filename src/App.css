@@ -37,6 +37,12 @@
 .ProductList-Container {
 }
 
+.Product-Detail-Name-Style {
+    display: block !important;
+    align-items: start !important;
+    justify-content: space-between !important;
+}
+
 .fab-style {
     position: fixed !important;
     bottom: 20px !important;
@@ -48,11 +54,16 @@
     width: 30%;
 }
 
-
 .Layout-Style {
     display: flex !important;
     text-align: center !important;
     justify-content: center !important;
     align-items: center;
     background-color: rgb(233, 233, 233);
+}
+
+.Loading-Box-Style {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

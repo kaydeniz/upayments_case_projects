@@ -3,7 +3,7 @@ import SearchAndSelectionBar from "./SearchAndSelectionBar";
 import ProductList from "./ProductList";
 import {useState} from "react";
 import AddIcon from "@mui/icons-material/Add";
-import {Link} from "react-router-dom";
+import {Link, Outlet} from "react-router-dom";
 import * as React from "react";
 
 function Index() {
@@ -16,6 +16,7 @@ function Index() {
             <Fab color="primary" aria-label="add" className="fab-style">
                 <Link to="/createProduct"> <AddIcon/></Link>
             </Fab>
+            <Outlet />
         </Stack>
     );
 }
