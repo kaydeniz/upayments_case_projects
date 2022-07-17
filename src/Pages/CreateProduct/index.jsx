@@ -1,4 +1,4 @@
-import {Button, Stack, TextField} from "@mui/material";
+import {Button, InputLabel, Stack, TextField} from "@mui/material";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
@@ -6,11 +6,14 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 function Index() {
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [categoryList, setCategoryList] = useState([]);
+    const [loading, setLoading] = useState(false);
     const axios = require('axios');
+    let navigate = useNavigate();
     const [state, setState] = useState({
         name: '',
         description: '',
@@ -48,6 +51,7 @@ function Index() {
     }
 
     function submitProduct() {
+        setLoading(true);
         const params = {
             ...state,
             category: selectedCategory,
@@ -56,9 +60,12 @@ function Index() {
         axios.post('https://62286b649fd6174ca82321f1.mockapi.io/case-study/products', params)
             .then(function (response) {
                 console.log(response);
+                navigate("/", {replace: true});
+                setLoading(false);
             })
             .catch(function (error) {
                 console.log(error);
+                setLoading(false);
             });
     }
 
@@ -73,20 +80,22 @@ function Index() {
                        onChange={onChange}/>
             <Box sx={{minWidth: 120}}>
                 <FormControl fullWidth>
+                    <InputLabel id="category-label">Categories</InputLabel>
                     <Select
-                        id="demo-simple-select"
+                        id="category-select"
                         value={selectedCategory}
                         onChange={handleChange}
-                        label="Category"
+                        label="Categories"
                     >
-                        {categoryList.map((category) => {
+                        {categoryList.map((category, index) => {
                             return <MenuItem key={category.id} value={category.name}>{category.name}</MenuItem>
                         })}
                     </Select>
                 </FormControl>
             </Box>
             <TextField id="price" name="price" variant="outlined" placeholder="Price" onChange={onChange}/>
-            <Button variant="outlined" onClick={submitProduct}>SUBMIT</Button>
+            <Button variant="outlined" onClick={submitProduct}
+                    disabled={loading}> {loading ? 'Loading...' : 'SUBMIT'} < /Button>
         </Stack>
     )
 

@@ -3,6 +3,8 @@ import SearchAndSelectionBar from "./SearchAndSelectionBar";
 import ProductList from "./ProductList";
 import {useState} from "react";
 import AddIcon from "@mui/icons-material/Add";
+import {Link} from "react-router-dom";
+import * as React from "react";
 
 function Index() {
     const [selectedCategory, setSelectedCategory] = useState(null);
@@ -12,7 +14,7 @@ function Index() {
             <SearchAndSelectionBar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
             <ProductList selectedCategory={selectedCategory}/>
             <Fab color="primary" aria-label="add" className="fab-style">
-                <AddIcon/>
+                <Link to="/createProduct"> <AddIcon/></Link>
             </Fab>
         </Stack>
     );
