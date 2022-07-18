@@ -8,15 +8,17 @@ import * as React from "react";
 
 function Index() {
     const [selectedCategory, setSelectedCategory] = useState(null);
+    const [searchText, setSearchText] = useState("");
 
     return (
         <Stack spacing={1} className="Home-Page-style">
-            <SearchAndSelectionBar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
-            <ProductList selectedCategory={selectedCategory}/>
+            <SearchAndSelectionBar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}
+                                   searchText={searchText} setSearchText={setSearchText}/>
+            <ProductList selectedCategory={selectedCategory} searchText={searchText}/>
             <Fab color="primary" aria-label="add" className="fab-style">
                 <Link to="/createProduct"> <AddIcon/></Link>
             </Fab>
-            <Outlet />
+            <Outlet/>
         </Stack>
     );
 }

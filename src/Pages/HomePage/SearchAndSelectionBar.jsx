@@ -8,7 +8,7 @@ import axios from "axios";
 import {useEffect} from "react";
 
 function SearchAndSelectionBar(props) {
-    const {selectedCategory, setSelectedCategory} = props;
+    const {selectedCategory, setSelectedCategory, searchText, setSearchText} = props;
     const [categoryList, setCategoryList] = React.useState([]);
     const axios = require('axios');
 
@@ -40,7 +40,8 @@ function SearchAndSelectionBar(props) {
             alignItems="center"
             spacing={2}
         >
-            <TextField id="outlined-basic" variant="outlined" placeholder="Apple Watch,Samsung..."/>
+            <TextField id="search" name="search" value={searchText} variant="outlined" className="Search-TextField-Style"
+                       placeholder="Apple Watch,Samsung..." onChange={(e) => setSearchText(e.target.value)}/>
             <Box sx={{minWidth: 120}}>
                 <FormControl fullWidth>
                     <InputLabel id="category-label">Categories</InputLabel>

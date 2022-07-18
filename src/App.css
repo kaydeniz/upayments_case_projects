@@ -67,3 +67,7 @@
     align-items: center;
     justify-content: center;
 }
+
+.Search-TextField-Style {
+    min-width: 250px !important;
+}
