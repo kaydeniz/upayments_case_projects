@@ -1,8 +1,12 @@
+import {Link} from "react-router-dom";
+
 function Header() {
 
     return (
         <div className="App-header">
-            <p>UPayments Store</p>
+            <Link to="/" className="Home-Link" >
+                UPayments Store
+            </Link>
             <p> Register</p>
         </div>
     );

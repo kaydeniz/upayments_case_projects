@@ -1,4 +1,4 @@
-import {Button, InputLabel, Stack, TextField} from "@mui/material";
+import {Button, Grid, InputLabel, Stack, TextField} from "@mui/material";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
@@ -70,35 +70,95 @@ function Index() {
     }
 
     return (
-        <Stack spacing={1} className="Create-Page-Style">
-            <p>Create Product</p>
-            <TextField id="name" name="name" variant="outlined" placeholder="Product Name" value={state.name}
-                       onChange={onChange}/>
-            <TextField id="description" name="description" variant="outlined" placeholder="Description"
-                       value={state.description} onChange={onChange}/>
-            <TextField id="avatar" name="avatar" variant="outlined" placeholder="Image URL" value={state.avatar}
-                       onChange={onChange}/>
-            <Box sx={{minWidth: 120}}>
-                <FormControl fullWidth>
-                    <InputLabel id="category-label">Categories</InputLabel>
-                    <Select
-                        id="category-select"
-                        value={selectedCategory}
-                        onChange={handleChange}
-                        label="Categories"
-                    >
-                        {categoryList.map((category, index) => {
-                            return <MenuItem key={category.id} value={category.name}>{category.name}</MenuItem>
-                        })}
-                    </Select>
-                </FormControl>
-            </Box>
-            <TextField id="price" name="price" variant="outlined" placeholder="Price" onChange={onChange}/>
-            <Button variant="outlined" onClick={submitProduct}
-                    disabled={loading}> {loading ? 'Loading...' : 'SUBMIT'} < /Button>
-        </Stack>
+        <Grid container className="Create-Page-Style">
+            <Grid item xs={12} sm={8} md={6} lg={4} xl={3}>
+                <Stack spacing={1}>
+                    <p style={{fontWeight: 'bold', fontSize: 24}}>Create Product</p>
+                    <TextField
+                        id="name" name="name"
+                        variant="outlined"
+                        placeholder="Product Name"
+                        value={state.name}
+                        onChange={onChange}
+                        style={{
+                            backgroundColor: "white"
+                        }}
+                        InputProps={{
+                            style: {
+                                color: "#282c34"
+                            }
+                        }}
+                    />
+                    <TextField id="description" name="description" variant="outlined" placeholder="Description"
+                               value={state.description} onChange={onChange} multiline minRows={"3"}
+                               style={{
+                                   backgroundColor: "white"
+                               }}
+                               InputProps={{
+                                   style: {
+                                       color: "#282c34"
+                                   }
+                               }}/>
+                    <TextField id="avatar" name="avatar" variant="outlined" placeholder="Image URL" value={state.avatar}
+                               onChange={onChange}
+                               style={{
+                                   backgroundColor: "white"
+                               }}
+                               InputProps={{
+                                   style: {
+                                       color: "#282c34"
+                                   }
+                               }}/>
+                    <Box sx={{minWidth: 120}}>
+                        <FormControl fullWidth>
+                            <InputLabel id="category-label">Categories</InputLabel>
+                            <Select
+                                id="category-select"
+                                value={selectedCategory}
+                                onChange={handleChange}
+                                label="Categories"
+                                style={{
+                                    backgroundColor: "white"
+                                }}
+                                InputProps={{
+                                    style: {
+                                        color: "#282c34"
+                                    }
+                                }}
+                            >
+                                {categoryList.map((category, index) => {
+                                    return <MenuItem key={category.id} value={category.name}>{category.name}</MenuItem>
+                                })}
+                            </Select>
+                        </FormControl>
+                    </Box>
+                    <TextField
+                        id="price"
+                        name="price"
+                        variant="outlined"
+                        placeholder="Price"
+                        onChange={onChange}
+                        type="number"
+                        style={{
+                            backgroundColor: "white"
+                        }}
+                        InputProps={{
+                            style: {
+                                color: "#282c34"
+                            }
+                        }}/>
+                    <Button variant="outlined" onClick={submitProduct}
+                            disabled={loading}
+                            style={{
+                                backgroundColor: "white",
+                                color: "#282c34",
+                                fontWeight: 'bold'
+                            }}
+                    > {loading ? 'Loading...' : 'SUBMIT'} < /Button>
+                </Stack>
+            </Grid>
+        </Grid>
     )
-
 }
 
 export default Index;
