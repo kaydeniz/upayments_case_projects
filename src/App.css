@@ -52,9 +52,10 @@
 }
 
 .Product-Detail-Name-Style {
-    display: block !important;
-    align-items: start !important;
-    justify-content: space-between !important;
+    padding-left: 40px !important;
+    text-align: start;
+    align-content: space-between;
+    display: grid;
 }
 
 .fab-style {
@@ -84,4 +85,13 @@
 
 .Search-TextField-Style {
     min-width: 250px !important;
+}
+
+.description-style {
+    text-align: start;
+}
+
+.Price-Delete-Div-Style {
+    display: flex;
+    justify-content: space-between;
 }

@@ -1,4 +1,4 @@
-import {Card, CardContent, Divider, Grid, IconButton, Stack} from "@mui/material";
+import {Card, Divider, Grid, IconButton, Stack, Typography} from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import ConfirmDialog from "../ConfirmDialog/ConfirmDialog";
 import {useState} from "react";
@@ -30,38 +30,47 @@ function Index(props) {
     }
 
     return (
-        <Stack spacing={1}>
+        <Stack spacing={1} className="Home-Page-style">
             <Grid container>
                 <Grid item xs={4}>
                     <Card variant="outlined" className="Product-Card-Style">
-                        <CardContent>
-                            <img className="Product-Image-Style"
-                                 src={avatar}
-                                 srcSet={avatar}
-                                 alt={name}
-                                 loading="lazy"/>
-                        </CardContent>
+                        <img className="Product-Image-Style"
+                             src={`${avatar}?w=164&h=164&fit=crop&auto=format`}
+                             srcSet={`${avatar}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                             alt={name}
+                             loading="lazy"/>
                     </Card>
                 </Grid>
                 <Grid item xs={8} className="Product-Detail-Name-Style">
-                    <p>{name}</p>
-                    <p>{price}</p>
-                    <IconButton aria-label="delete" color="primary" onClick={() => setConfirmOpen(true)}>
-                        <DeleteIcon/>
-                    </IconButton>
-                    <ConfirmDialog
-                        title="Delete Product?"
-                        open={confirmOpen}
-                        setOpen={setConfirmOpen}
-                        onConfirm={deleteProduct}
-                        loading={loading}
-                    >
-                        Are you sure you want to delete this product?
-                    </ConfirmDialog>
+                    <Typography variant="h3" component="div">
+                        {name}
+                    </Typography>
+                    <div className="Price-Delete-Div-Style">
+                        <Typography variant="h5" component="div">
+                            ${price}
+                        </Typography>
+                        <IconButton aria-label="delete" color="primary" onClick={() => setConfirmOpen(true)}>
+                            <DeleteIcon/>
+                        </IconButton>
+                        <ConfirmDialog
+                            title="Delete Product?"
+                            open={confirmOpen}
+                            setOpen={setConfirmOpen}
+                            onConfirm={deleteProduct}
+                            loading={loading}
+                        >
+                            Are you sure you want to delete this product?
+                        </ConfirmDialog>
+                    </div>
                 </Grid>
             </Grid>
-            <Divider/>
-            <p> {description}</p>
+            <Divider style={{height: 5, color: 'black'}}/>
+            <div className="description-style">
+                <Typography variant="h5" component="div">
+                    Description
+                </Typography>
+                <p> {description}</p>
+            </div>
         </Stack>);
 }
 
