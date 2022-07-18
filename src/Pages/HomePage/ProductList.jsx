@@ -54,7 +54,8 @@ function ProductList(props) {
             <CircularProgress size="100"/>
         </Box> : <Grid container className="ProductList-Container">
             {searchedList.map((product, index) => {
-                return <Grid key={index} item xs={3} style={{padding: 20}}> <ProductCard product={product}/> </Grid>
+                return <Grid key={index} item xs={12} md={6} lg={4} xl={3} style={{padding: 20}}> <ProductCard
+                    product={product}/> </Grid>
             })}
         </Grid>
     );

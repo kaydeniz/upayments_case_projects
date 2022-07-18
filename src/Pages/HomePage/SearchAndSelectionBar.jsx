@@ -40,12 +40,30 @@ function SearchAndSelectionBar(props) {
             alignItems="center"
             spacing={2}
         >
-            <TextField id="search" name="search" value={searchText} variant="outlined" className="Search-TextField-Style"
-                       placeholder="Apple Watch,Samsung..." onChange={(e) => setSearchText(e.target.value)}/>
+            <TextField id="search" name="search" value={searchText} variant="outlined"
+                       className="Search-TextField-Style"
+                       style={{
+                           backgroundColor: "white"
+                       }}
+                       InputProps={{
+                           style: {
+                               color: "#282c34"
+                           }
+                       }}
+                       placeholder="Apple Watch,Samsung..."
+                       onChange={(e) => setSearchText(e.target.value)}/>
             <Box sx={{minWidth: 120}}>
                 <FormControl fullWidth>
                     <InputLabel id="category-label">Categories</InputLabel>
                     <Select
+                        style={{
+                            backgroundColor: "white"
+                        }}
+                        InputProps={{
+                            style: {
+                                color: "#282c34"
+                            }
+                        }}
                         id="category-select"
                         value={selectedCategory}
                         onChange={handleChange}

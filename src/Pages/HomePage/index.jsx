@@ -15,8 +15,8 @@ function Index() {
             <SearchAndSelectionBar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}
                                    searchText={searchText} setSearchText={setSearchText}/>
             <ProductList selectedCategory={selectedCategory} searchText={searchText}/>
-            <Fab color="primary" aria-label="add" className="fab-style">
-                <Link to="/createProduct"> <AddIcon/></Link>
+            <Fab aria-label="add" className="fab-style">
+                <Link className="Fab-Link" to="/createProduct"> <AddIcon style={{color: 'white'}}/></Link>
             </Fab>
             <Outlet/>
         </Stack>
