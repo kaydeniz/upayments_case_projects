@@ -5,15 +5,14 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import {useEffect, useState} from "react";
-import axios from "axios";
 import {useNavigate} from "react-router-dom";
+const axios = require('axios');
 
 function Index() {
-    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState("");
     const [categoryList, setCategoryList] = useState([]);
     const [loading, setLoading] = useState(false);
-    const axios = require('axios');
-    let navigate = useNavigate();
+    const navigate = useNavigate();
     const [state, setState] = useState({
         name: '',
         description: '',
@@ -22,6 +21,7 @@ function Index() {
     })
 
     useEffect(() => {
+        console.log("render")
         fetchData();
     }, [])
 
@@ -83,18 +83,18 @@ function Index() {
                         style={{
                             backgroundColor: "white"
                         }}
-                        InputProps={{
+                        inputProps={{
                             style: {
                                 color: "#282c34"
                             }
                         }}
                     />
                     <TextField id="description" name="description" variant="outlined" placeholder="Description"
-                               value={state.description} onChange={onChange} multiline minRows={"3"}
+                               value={state.description} onChange={onChange} multiline minRows={"3"} maxRows={"10"}
                                style={{
                                    backgroundColor: "white"
                                }}
-                               InputProps={{
+                               inputProps={{
                                    style: {
                                        color: "#282c34"
                                    }
@@ -104,7 +104,7 @@ function Index() {
                                style={{
                                    backgroundColor: "white"
                                }}
-                               InputProps={{
+                               inputProps={{
                                    style: {
                                        color: "#282c34"
                                    }
@@ -120,7 +120,7 @@ function Index() {
                                 style={{
                                     backgroundColor: "white"
                                 }}
-                                InputProps={{
+                                inputProps={{
                                     style: {
                                         color: "#282c34"
                                     }
@@ -142,7 +142,7 @@ function Index() {
                         style={{
                             backgroundColor: "white"
                         }}
-                        InputProps={{
+                        inputProps={{
                             style: {
                                 color: "#282c34"
                             }

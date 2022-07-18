@@ -2,7 +2,6 @@ import {Card, Divider, Grid, IconButton, Stack, Typography} from "@mui/material"
 import DeleteIcon from '@mui/icons-material/Delete';
 import ConfirmDialog from "../ConfirmDialog/ConfirmDialog";
 import {useState} from "react";
-import axios from "axios";
 import {useNavigate} from "react-router-dom";
 
 function Index(props) {

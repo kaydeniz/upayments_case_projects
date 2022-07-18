@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import axios from "axios";
 import {useEffect} from "react";
 
 function SearchAndSelectionBar(props) {
@@ -23,7 +22,6 @@ function SearchAndSelectionBar(props) {
     function fetchData() {
         axios.get('https://62286b649fd6174ca82321f1.mockapi.io/case-study/categories/')
             .then(function (response) {
-                console.log(response.data);
                 setCategoryList(response.data);
             })
             .catch(function (error) {
@@ -45,7 +43,7 @@ function SearchAndSelectionBar(props) {
                        style={{
                            backgroundColor: "white"
                        }}
-                       InputProps={{
+                       inputProps={{
                            style: {
                                color: "#282c34"
                            }
@@ -59,7 +57,7 @@ function SearchAndSelectionBar(props) {
                         style={{
                             backgroundColor: "white"
                         }}
-                        InputProps={{
+                        inputProps={{
                             style: {
                                 color: "#282c34"
                             }

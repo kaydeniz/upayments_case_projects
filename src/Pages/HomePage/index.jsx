@@ -7,7 +7,7 @@ import {Link, Outlet} from "react-router-dom";
 import * as React from "react";
 
 function Index() {
-    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState("");
     const [searchText, setSearchText] = useState("");
 
     return (

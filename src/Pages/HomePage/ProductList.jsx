@@ -1,5 +1,4 @@
 import {useEffect, useState} from "react";
-import axios from "axios";
 import ProductCard from "../../Components/ProductCard/ProductCard";
 import {CircularProgress, Grid} from "@mui/material";
 import Box from "@mui/material/Box";
@@ -35,7 +34,6 @@ function ProductList(props) {
         axios.get('https://62286b649fd6174ca82321f1.mockapi.io/case-study/products/')
             .then(function (response) {
                 // handle success
-                console.log(response.data);
                 setProductList(response.data);
                 setShownList(response.data);
                 setSearchedList(response.data);
@@ -51,7 +49,7 @@ function ProductList(props) {
 
     return (
         shownList === -1 ? <Box className="Loading-Box-Style">
-            <CircularProgress size="100"/>
+            <CircularProgress/>
         </Box> : <Grid container className="ProductList-Container">
             {searchedList.map((product, index) => {
                 return <Grid key={index} item xs={12} md={6} lg={4} xl={3} style={{padding: 20}}> <ProductCard
